@@ -6,7 +6,7 @@ import java.util.List;
 public class ArraysClass {
     public static void main(String[] args) {
         // Create the Array by using Integer as type not int
-        Integer intArr[] = {10, 20, 15, 22, 35};
+        Integer[] intArr = {10, 20, 15, 22, 35};
 
         // To convert the elements as List
         System.out.println("Integer Array as List: " + Arrays.asList(intArr));

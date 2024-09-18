@@ -38,7 +38,6 @@ public class StringJoinerExample {
         // Using merge() method,
         // It merges and returns updated string.
         sj1.merge(sj2);
-
         // Using toString() method
         System.out.println(sj1.toString());
 

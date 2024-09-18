@@ -12,7 +12,7 @@ public class StringBufferExample {
         sb.append(" ");
         sb.append("world");
         sb.append(" ");
-        sb.append(sbTwo,0,4); // Adds Java to string
+        sb.append(sbTwo,0,2); // Adds Ja to string
         String message = sb.toString();
         System.out.println(message); // prints Hello world Java
 
