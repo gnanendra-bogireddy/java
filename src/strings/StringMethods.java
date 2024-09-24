@@ -150,9 +150,14 @@ public class StringMethods {
         System.out.println(" Joined string is : " + joinedString);
 
         // Returns formatted string.
-        String myStr = "Hello %s! One kilobyte is %,d bytes.";
+        String myStr = "Hello %s! One kilobyte is %d bytes.";
         String result = String.format(myStr, "World", 1024);
         System.out.println(result);
+
+        // Returns true if the given string matches with regex
+
+        String matches = "Hello";
+        System.out.println("Vowels present in String : " + matches.toLowerCase().matches(".*[aeiou].*"));
 
     }
 }

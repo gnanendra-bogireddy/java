@@ -8,17 +8,17 @@ public class ArraysClass {
         // Create the Array by using Integer as type not int
         Integer[] intArr = {10, 20, 15, 22, 35};
 
-        // To convert the elements as List
+        // To convert the elements as List by using asList(array);
         System.out.println("Integer Array as List: " + Arrays.asList(intArr));
 
         List<Integer> list = Arrays.asList(intArr);
         System.out.println("First element in Array list : " + list.get(0));
 
-        // Sorting an array
+        // Sorting an array by using sort(array) method.
         Arrays.sort(intArr);
-        int intKey = 22;
 
-        // Print the key and corresponding index,
+        int intKey = 22;
+        // Print the key and corresponding index using binarySearch(arr, key);
         // If not found returns -1.
         System.out.println(intKey + " found at index = " + Arrays.binarySearch(intArr, intKey));
 
@@ -39,7 +39,7 @@ public class ArraysClass {
         // Get the Array
         int intArrCopy[] = {10, 20, 15, 22, 35};
 
-        // To print the elements in one line
+        // To print the elements in one line or convert to String.
         System.out.println("Integer Array: " + Arrays.toString(intArrCopy));
 
         System.out.println("\nNew Arrays by copyOf:\n");
@@ -90,7 +90,6 @@ public class ArraysClass {
 
         // To sort the array using Sort
         Arrays.sort(intArrSort);
-
         System.out.println("Integer Array: " + Arrays.toString(intArrSort));
 
         // Get the Array

@@ -17,23 +17,45 @@ public class WrapperClassCreation {
         int value = Integer.parseInt(string);
         System.out.println("Parsing int value from String - Differs from valueOf() : " + value);
 
-        //isLetter() returns whether passes value is letter or not
+
+        // compare(int1, int2) - the value 0 if x == y; a value less than 0 if x < y; and a value greater than 0 if x > y
+        int comparedValue = Integer.compare(100, 101);
+        System.out.println("Comparison value is : " + comparedValue);
+
+        // max(int1, int2) - returns the maximum value.
+        int maxValue = Integer.max(100, 198);
+        System.out.println("Printing maximum value between numbers : " + maxValue);
+
+        // min(int1, int2) - returns the maximum value.
+        int minValue = Integer.min(100, 198);
+        System.out.println("Printing minimum value between numbers : " + minValue);
+
+
+        //isLetter() returns whether passed value is letter or not
         System.out.println(Character.isLetter('A'));
         System.out.println(Character.isLetter('0'));
 
-        //isDigit() returns whether passes value is letter or not
+        //isDigit() returns whether passed value is digit or not
         System.out.println(Character.isDigit('A'));
         System.out.println(Character.isDigit('0'));
 
-        //isWhitespace() returns whether passes value is white space or not
+        //isWhitespace() returns whether passed value is white space or not
         System.out.println(Character.isWhitespace(' '));
 
-        //isUpperCase() returns whether passes value is upper case or not
+        //isUpperCase() returns whether passed value is upper case or not
         System.out.println(Character.isUpperCase('U'));
         System.out.println(Character.isLowerCase('l'));
 
-        System.out.println("She said \"Hello!\" to me.");
+        //getNumericValue('4') returns whether passed value is numeric or not
+        System.out.println(Character.getNumericValue('4'));
 
+        //isAlphabetic('4') returns whether passed value is alphabetic or not
+        System.out.println(Character.isAlphabetic('a'));
+
+        //isLetterOrDigit('4') returns whether passed value is numeric or alphabetic or not
+        System.out.println(Character.isLetterOrDigit('@'));
+
+        System.out.println("She said \"Hello!\" to me.");
 
     }
 }

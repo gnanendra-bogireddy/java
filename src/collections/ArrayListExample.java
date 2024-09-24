@@ -51,9 +51,11 @@ public class ArrayListExample {
         list.add("Cherry");
 
         // If we want to remove all elements in specified list use removeAll() method.
+        System.out.println("Before performing removeAll() on main list : " + list);
         List<String> removeList = new ArrayList<>();
         removeList.add("Apple");
         removeList.add("Cherry");
+        removeList.add("Mango");
         list.removeAll(removeList);
         System.out.println("Printing list after using removeAll() : " + list);
 
@@ -109,8 +111,8 @@ public class ArrayListExample {
         System.out.println("Strings after replacement to lower case: " + newList.get(0));
 
         // Converting ArrayList to Array by using toArray() method.
-        Object[] array = newList.toArray();
-        System.out.println("First element in array : " + array[0]);
+        Object[] array = newList.toArray(new String[0]);
+        System.out.println("First element in array : " + array[0].toString());
 
         // converting ArrayList to array by adding another array.
         Object[] arrOne = {"D", "F", "E"};

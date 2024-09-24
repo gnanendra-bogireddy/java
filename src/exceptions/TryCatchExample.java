@@ -22,7 +22,8 @@ public class TryCatchExample {
             int b = 0;
             System.out.println(a / b);
 
-        } catch (ArithmeticException exception) {
+        }
+        catch (ArithmeticException exception) {
             // statement(s) that handle an exception
             // examples, closing a connection, closing
             // file, exiting the process after writing

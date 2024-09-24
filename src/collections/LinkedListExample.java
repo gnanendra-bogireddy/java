@@ -1,9 +1,7 @@
 package collections;
 
-import java.util.LinkedList;
 import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.LinkedList;
 
 public class LinkedListExample {
 
@@ -24,7 +22,6 @@ public class LinkedListExample {
         list.add("Four");
         list.add("Five");
 
-
         //Adding elements at specific index
         list.add(1, "New Two");
 
@@ -37,9 +34,44 @@ public class LinkedListExample {
             System.out.println(desiterator.next() + " ");
         }
 
-        // Removing elements by using pop() method.
-        list.pop();
+        // Removes and returns first element by using pop() method.
+        System.out.println("It will remove first Element(One) : " + list.pop());
+        System.out.println("Printing list after using pop : " + list);
 
+        // Returns first element by using element() method.
+        System.out.println("It will return first Element(New Two) : " + list.element());
+        System.out.println("Printing list after using element : " + list);
+
+        // Returns first element by using peek() method.
+        System.out.println("It will return first Element(New Two) : " + list.peek());
+        System.out.println("Printing list after using peek : " + list);
+
+        // Returns and Removes first element by using poll() method.
+        System.out.println("It will remove first Element(New Two) : " + list.poll());
+        System.out.println("Printing list after using poll : " + list);
+
+        // Returns first element, last element by using peekFirst(), peekLast() method.
+        System.out.println("It will return first and last Element : " + list.peekFirst() + " " + list.peekLast());
+        System.out.println("Printing list after using peekFist() : " + list);
+
+        // Returns and Removes first element, last element by using pollFirst(), pollLast() method.
+        System.out.println("It will return and remove first, last Element : " + list.pollFirst() + " " + list.pollLast());
+        System.out.println("Printing list after using pollFist(), pollLast() : " + list);
+
+        // Returns first element, last element by using getFirst(), getLast() method.
+        System.out.println("It will return first and last Element : " + list.getFirst() + " " + list.getLast());
+        System.out.println("Printing list after using getFirst(), getLast() : " + list);
+
+        // Adds elements at first, last by using offer(element), offerLast(element) method.
+        System.out.println("It will return  boolean and add and first, last Element : " + list.offer("Last") + " " + list.offerFirst("First"));
+        System.out.println("Printing list after using offer(), offerLast() : " + list);
+
+        // Adds elements at first, last by using removeFirst(), removeLast() method.
+        System.out.println("It will removes and returns first, last Element : " + list.removeFirst() + " " + list.removeLast());
+        System.out.println("Printing list after using removeFirst(), removeLast() : " + list);
+
+        list.push("New Element");
+        System.out.println("Printing list after using push(element) : " + list);
 
     }
 }
