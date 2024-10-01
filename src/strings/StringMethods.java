@@ -121,7 +121,9 @@ public class StringMethods {
         // Finding String constant pool has given value or not,
         // If present it maps the string reference to found value.
         String stringValueOne = "Intern";
-        stringValueOne.intern();
+        String stringValueIntern = new String("Intern");
+        stringValueIntern.intern();
+        System.out.println("Checking both sting values points to same address or not : " + stringValueIntern == stringValueOne);
 
         // Finds String is empty or not,
         // Finds the length and if length is 0, prints true

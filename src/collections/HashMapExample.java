@@ -92,7 +92,7 @@ public class HashMapExample {
         // Remove the key from map - It removes both key and value matches.
         newMap.remove("9", "Nine");
 
-        for(Map.Entry<String,String> mapsw : maps.entrySet()) {
+        for (Map.Entry<String, String> mapsw : maps.entrySet()) {
             mapsw.getKey();
             mapsw.getValue();
         }

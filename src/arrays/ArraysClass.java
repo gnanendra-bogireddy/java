@@ -30,7 +30,6 @@ public class ArraysClass {
         // Get the Array
         int intArr1[] = {10, 20, 15, 22, 35};
 
-        // Get the second Array
         int intArr2[] = {10, 15, 22};
 
         // To compare both arrays lexicographically. If both arrays are equal then returns 0
