@@ -3,11 +3,9 @@ package dsa.thirdTen;
 import oop.interfaces.InterfaceExample;
 
 import java.util.*;
-
+//  Write a java code to check two Strings are anagrams or not
+// Anagram - Two strings are anagrams if they have same chars and number of corresponding position
 public class ProblemFour {
-    //  Write a java code to check two Strings are anagrams or not
-    // Anagram - Two strings are anagrams if they have same chars and number of corresponding position
-
     public static void main(String[] args) {
         String str1 = "listen";
         String str2 = "silent";

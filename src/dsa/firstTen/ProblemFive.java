@@ -3,9 +3,9 @@ package dsa.firstTen;
 import java.util.Arrays;
 import java.util.OptionalInt;
 
+// Find the sum of all elements in an array and average and find min and max elements in array
+// Sort an array
 public class ProblemFive {
-    // Find the sum of all elements in an array and average and find min and max elements in array
-    // Sort an array
     public static void main(String[] args) {
         int[] intArray = {0, 5, 9, 98, 56, 123, 890, 907, 56, 1, 4, 7, 45, 90, 2, 6, 8};
         int sum = 0;

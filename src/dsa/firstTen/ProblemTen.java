@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+// Reverse a String without using StringBuilder or StringBuffer
 public class ProblemTen {
-    // Reverse a String without using StringBuilder or StringBuffer
     public static void main(String[] args) {
 
         String string = "Gnanendra";
@@ -23,7 +23,7 @@ public class ProblemTen {
         }
         System.out.println(new String(reversed));
 
-        // Simple one
+        // Simple solution
 
         String reversedOne = "";
         for (int i = string.length() - 1; i >= 0; i--) {

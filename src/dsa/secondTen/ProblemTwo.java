@@ -3,8 +3,8 @@ package dsa.secondTen;
 import java.util.ArrayList;
 import java.util.List;
 
+// Write a Java program to check if a given number is a perfect number or not.
 public class ProblemTwo {
-    // Write a Java program to check if a given number is a perfect number or not.
     public static void main(String[] args) {
         int number = 9;
 

@@ -1,8 +1,7 @@
 package dsa.firstTen;
 
+// Write a Java Program to reverse a number and check number is palindrome or not
 public class ProblemThree {
-
-    // Write a Java Program to reverse a number and check number is palindrome or not
     public static void main(String[] args) {
 
         int num1 = 12321;

@@ -2,8 +2,8 @@ package dsa.firstTen;
 
 import java.util.Scanner;
 
+// Write a program to print given input and command line arguments.
 public class ProblemFour {
-    // Write a program to print given input and command line arguments.
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the input : ");

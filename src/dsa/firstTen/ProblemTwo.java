@@ -1,7 +1,7 @@
 package dsa.firstTen;
 
+// Write a Java Program to generate Output "a2b3c4" with the input "aabbbcccc"
 public class ProblemTwo {
-    // // Write a Java Program to generate Output "a2b3c4" with the input "aabbbcccc"
     public static void main(String[] args) {
 
         String str1 = "aaddaaaaabbbcccc";

@@ -1,9 +1,7 @@
 package dsa.firstTen;
 
-import java.util.Arrays;
-
+// Factorial for given number
 public class ProblemNine {
-    // Factorial for given number
     public static void main(String[] args) {
         int num = 10;
         long factorial = 1;

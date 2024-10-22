@@ -1,11 +1,12 @@
 package arrays;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class ArraysClass {
     public static void main(String[] args) {
-        // Create the Array by using Integer as type not int
+        // Create the Array by using Integer as datatype not int(primitive)
         Integer[] intArr = {10, 20, 15, 22, 35};
 
         // To convert the elements as List by using asList(array);
@@ -17,9 +18,17 @@ public class ArraysClass {
         // Sorting an array by using sort(array) method.
         Arrays.sort(intArr);
 
+        // Sorting array elements by using parallel sort.
+        // This sorts array in a quickly compared to traditional sorting method.
+        Arrays.parallelSort(intArr);
+
+        // Sorting arrays in reverse order using Comparator interface.
+        Arrays.sort(intArr, Comparator.reverseOrder());
+
         int intKey = 22;
         // Print the key and corresponding index using binarySearch(arr, key);
         // If not found returns -1.
+        // make sure array is sorted to find element otherwise it will return random value.
         System.out.println(intKey + " found at index = " + Arrays.binarySearch(intArr, intKey));
 
         // Binary search with start and end index
@@ -27,9 +36,10 @@ public class ArraysClass {
         // If not found returns -1.
         System.out.println(intKey + " found at index = " + Arrays.binarySearch(intArr, 1, 3, intKey));
 
-        // Get the Array
+        // Get the first array
         int intArr1[] = {10, 20, 15, 22, 35};
 
+        // Second array
         int intArr2[] = {10, 15, 22};
 
         // To compare both arrays lexicographically. If both arrays are equal then returns 0
@@ -41,11 +51,10 @@ public class ArraysClass {
         // To print the elements in one line or convert to String.
         System.out.println("Integer Array: " + Arrays.toString(intArrCopy));
 
-        System.out.println("\nNew Arrays by copyOf:\n");
-
         // Copies the Array to new array with given length,
         // If the whole array does not have enough elements it fills with default values.
-        System.out.println("Integer Array: " + Arrays.toString(Arrays.copyOf(intArr, 10)));
+        int [] arrayCopyDefault = Arrays.copyOf(intArrCopy, 10);
+        System.out.println("Integer Array: " +Arrays.toString(arrayCopyDefault));
 
         System.out.println("\nNew Arrays by copyOfRange:\n");
 

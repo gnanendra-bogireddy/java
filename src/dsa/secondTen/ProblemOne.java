@@ -1,11 +1,9 @@
 package dsa.secondTen;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.*;
 
+//  Write a Java Program to find the count of each character in the given string
 public class ProblemOne {
-    //  Write a Java Program to find the count of each character in the given string
     public static void main(String[] args) {
         String string = "aabbbcccc";
 

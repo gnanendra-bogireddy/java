@@ -3,8 +3,8 @@ package dsa.firstTen;
 import java.util.Arrays;
 import java.util.Comparator;
 
+// Find third-largest element in Array
 public class ProblemSeven {
-    // Find third-largest element in Array
     public static void main(String[] args) {
         int[] arr = {1, 3, 7, 89, 45, 32, 78, 90, 0, 67};
 

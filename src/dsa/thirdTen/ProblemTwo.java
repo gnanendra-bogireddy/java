@@ -3,8 +3,8 @@ package dsa.thirdTen;
 import java.util.ArrayList;
 import java.util.List;
 
+// Write a Java program to check if a vowel is present in a string.
 public class ProblemTwo {
-    // Write a Java program to check if a vowel is present in a string.
     public static void main(String[] args) {
         String string = "wrttrtwrtwrwt";
         List<String> list = new ArrayList<>();

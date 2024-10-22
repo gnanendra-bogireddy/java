@@ -2,8 +2,8 @@ package dsa.firstTen;
 
 import java.util.Arrays;
 
+// Write a program to copy elements from one array to other
 public class ProblemSix {
-    // Write a program to copy elements from one array to other
     public static void main(String[] args) {
         int[] arr = {1, 3, 5, 7, 9, 11, 2, 4, 6, 8, 10, 56, 867, 890, 643};
 
