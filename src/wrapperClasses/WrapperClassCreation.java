@@ -55,7 +55,18 @@ public class WrapperClassCreation {
         //isLetterOrDigit('4') returns whether passed value is numeric or alphabetic or not
         System.out.println(Character.isLetterOrDigit('@'));
 
-        System.out.println("She said \"Hello!\" to me.");
+        // Prints integer in reverse order.
+        Integer int1 = Integer.reverse(345);
+        System.out.println(int1);
+
+        // Converts Integer to Binary String.
+        String binaryString = Integer.toBinaryString(278);
+        System.out.println(binaryString);
+
+        // rotateLeft() method rotates the bits of the specified integer value to the left by the specified distance.
+        // rotateRight() method rotates the bits of the specified integer value to the right by the specified distance.
+        System.out.println(Integer.rotateLeft(345, 2));
+        System.out.println(Integer.rotateRight(345, 2));
 
     }
 }
