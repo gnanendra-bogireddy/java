@@ -1,44 +1,51 @@
 package basics;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
+/**
+ * Input Handling is how we let the computer talk to us!
+ * Imagine the computer is asking you a question, and you type the answer on your keyboard.
+ * 
+ * We use a special tool called a 'Scanner' to read what you type.
+ * Think of the Scanner like a microphone for the computer.
+ */
 public class InputHandling {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        // Taking input in Java programming language using Scanner.
-        Scanner sc = new Scanner(System.in); // System.in represents standard input (keyboard).
+        // 1. Turn on the "microphone" (Scanner) to listen to the keyboard (System.in)
+        Scanner mic = new Scanner(System.in); 
 
-        int a = sc.nextInt(); // To take integer input.
-        double b = sc.nextDouble(); // To take double input.
-        sc.hasNext(); // To check if there is another token in the input.
-        sc.hasNextLine(); // To check if there is another line in the input.
-        String str = sc.nextLine(); // To take string input.
-        String str1 = sc.next(); // To take string input without space.
+        System.out.println("Hello! What is your favorite number?");
+        
+        // 2. Wait for the person to type a number and press Enter
+        // nextInt() grabs the number they typed.
+        if(mic.hasNextInt()) {
+            int favNumber = mic.nextInt(); 
+            System.out.println("Wow, " + favNumber + " is a great number!");
+        }
 
-        sc.close(); // Closing the Scanner object to prevent memory leaks.
+        // We have to clear out the "Enter" key press that was left behind
+        mic.nextLine(); 
 
-        // Example
-        Scanner scn = new Scanner(System.in);
-        System.out.print("Enter First Number: ");
-        int a1 = scn.nextInt();
+        System.out.println("What is your name?");
+        
+        // 3. Wait for the person to type words and press Enter
+        // nextLine() grabs the whole sentence they typed.
+        String name = mic.nextLine();
+        System.out.println("Nice to meet you, " + name + "!");
 
-        System.out.print("Enter Second Number: ");
-        int b1 = scn.nextInt();
-
-        System.out.println("Sum: " + (a1 + b1));
-        scn.close();
-
-        // Taking input in Java programming language using BufferedReader.
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        br.readLine(); // To read a line of text from the input.
-        br.read(); // To read a single character from the input.
-        br.lines(); // To read all lines from the input and return a Stream of lines.
-        br.close(); // to close the BufferedReader object to prevent memory leaks.
+        // 4. Turn off the microphone when we are done so it doesn't waste battery (memory)
+        mic.close(); 
+        
+        /* 
+         * Expected Output if I typed '7' and 'Hero':
+         * Hello! What is your favorite number?
+         * 7
+         * Wow, 7 is a great number!
+         * What is your name?
+         * Hero
+         * Nice to meet you, Hero!
+         */
     }
-
-
 }

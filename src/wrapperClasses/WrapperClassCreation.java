@@ -1,73 +1,62 @@
 package wrapperClasses;
 
+/**
+ * Wrapper Classes have Magic Tools!
+ * 
+ * Since they are big objects (and not just tiny primitives), they come with
+ * built-in tools to help us do math, find max/min, or check what a character is!
+ */
 public class WrapperClassCreation {
     public static void main(String[] args) {
 
-        // We can create a wrapper class by using Auto boxing method.
-        // ClassName object = value;
-        Integer integer = 100;
+        System.out.println("--- Math Tools (Integer) ---");
+        
+        // 1. Parsing (Turning Words into Numbers)
+        // This tool takes the WORD "101" and does magic to turn it into the NUMBER 101!
+        int value = Integer.parseInt("101");
+        System.out.println("Word '101' is now the number: " + (value + 9)); // Prints 110!
 
-        // We can create a wrapper class by using valueOf method. Create Integer object.
-        // ClassName object = ClassName.valueOf(argument);
-        Integer getInteger = Integer.valueOf("100");
-        System.out.println("Integer value from wrapper class object is : " + getInteger.toString());
-
-        // parseInt() method parses String to int value unlike valueOf() converts to object.
-        String string = "101";
-        int value = Integer.parseInt(string);
-        System.out.println("Parsing int value from String - Differs from valueOf() : " + value);
-
-
-        // compare(int1, int2) - the value 0 if x == y; a value less than 0 if x < y; and a value greater than 0 if x > y
-        int comparedValue = Integer.compare(100, 101);
-        System.out.println("Comparison value is : " + comparedValue);
-
-        // max(int1, int2) - returns the maximum value.
+        // 2. Finding Max and Min
+        // It's a referee! It looks at two numbers and tells you who wins.
         int maxValue = Integer.max(100, 198);
-        System.out.println("Printing maximum value between numbers : " + maxValue);
+        System.out.println("Who is bigger (100 or 198)? " + maxValue);
 
-        // min(int1, int2) - returns the maximum value.
         int minValue = Integer.min(100, 198);
-        System.out.println("Printing minimum value between numbers : " + minValue);
+        System.out.println("Who is smaller (100 or 198)? " + minValue);
 
+        
+        System.out.println("\n--- Inspector Tools (Character) ---");
+        
+        // These tools inspect a single character and answer YES (true) or NO (false).
+        
+        // Is 'A' a letter?
+        System.out.println("Is 'A' a letter? " + Character.isLetter('A')); // true
+        System.out.println("Is '0' a letter? " + Character.isLetter('0')); // false
 
-        //isLetter() returns whether passed value is letter or not
-        System.out.println(Character.isLetter('A'));
-        System.out.println(Character.isLetter('0'));
+        // Is '7' a digit (number)?
+        System.out.println("Is '7' a digit? " + Character.isDigit('7')); // true
 
-        //isDigit() returns whether passed value is digit or not
-        System.out.println(Character.isDigit('A'));
-        System.out.println(Character.isDigit('0'));
+        // Is ' ' just empty space?
+        System.out.println("Is ' ' a space? " + Character.isWhitespace(' ')); // true
 
-        //isWhitespace() returns whether passed value is white space or not
-        System.out.println(Character.isWhitespace(' '));
-
-        //isUpperCase() returns whether passed value is upper case or not
-        System.out.println(Character.isUpperCase('U'));
-        System.out.println(Character.isLowerCase('l'));
-
-        //getNumericValue('4') returns whether passed value is numeric or not
-        System.out.println(Character.getNumericValue('4'));
-
-        //isAlphabetic('4') returns whether passed value is alphabetic or not
-        System.out.println(Character.isAlphabetic('a'));
-
-        //isLetterOrDigit('4') returns whether passed value is numeric or alphabetic or not
-        System.out.println(Character.isLetterOrDigit('@'));
-
-        // Prints integer in reverse order.
-        Integer int1 = Integer.reverse(345);
-        System.out.println(int1);
-
-        // Converts Integer to Binary String.
-        String binaryString = Integer.toBinaryString(278);
-        System.out.println(binaryString);
-
-        // rotateLeft() method rotates the bits of the specified integer value to the left by the specified distance.
-        // rotateRight() method rotates the bits of the specified integer value to the right by the specified distance.
-        System.out.println(Integer.rotateLeft(345, 2));
-        System.out.println(Integer.rotateRight(345, 2));
-
+        // Is it shouting (Upper Case)?
+        System.out.println("Is 'U' uppercase? " + Character.isUpperCase('U')); // true
+        System.out.println("Is 'l' lowercase? " + Character.isLowerCase('l')); // true
+        
+        /*
+         * Expected Output:
+         * --- Math Tools (Integer) ---
+         * Word '101' is now the number: 110
+         * Who is bigger (100 or 198)? 198
+         * Who is smaller (100 or 198)? 100
+         * 
+         * --- Inspector Tools (Character) ---
+         * Is 'A' a letter? true
+         * Is '0' a letter? false
+         * Is '7' a digit? true
+         * Is ' ' a space? true
+         * Is 'U' uppercase? true
+         * Is 'l' lowercase? true
+         */
     }
 }
-

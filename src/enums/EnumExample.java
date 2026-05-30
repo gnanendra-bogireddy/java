@@ -1,14 +1,21 @@
 package enums;
-// Enums are used to store constant values.
-// Enum is a separate type of file in java.
-// Enums should have final variables and constructors also
-// Enum classes automatically extend Base java Enum, and it has
-// one method values() it will provide all the values as Array of type Enum class name
-public enum EnumExample {
 
+/**
+ * Enums are like a super strict menu! 
+ * 
+ * Imagine you go to an ice cream shop and they ONLY have Vanilla, Chocolate, and Strawberry.
+ * If you ask for "Pizza Flavor", they will say "No! Pick from the menu!"
+ * 
+ * Enums are a way to tell Java: "These are the ONLY choices allowed."
+ * Here, our menu is the Days of the Week.
+ */
+public enum EnumExample {
+    // These are the only allowed choices! 
+    // We usually write them in ALL CAPS so we know they are special constants.
     SUNDAY,
     MONDAY,
     TUESDAY,
+    WEDNESDAY, // Added Wednesday so the menu is complete!
     THURSDAY,
     FRIDAY,
     SATURDAY;
@@ -16,19 +23,23 @@ public enum EnumExample {
 
 class Main {
     public static void main(String[] args) {
-        EnumExample enumExample = EnumExample.FRIDAY;
-        switch (enumExample) {
+        // I am picking a day from our special menu.
+        EnumExample today = EnumExample.FRIDAY;
+        
+        // We can use a switch (vending machine) to do something based on our choice!
+        switch (today) {
             case FRIDAY:
-                System.out.println("Yay weekend !");
+                System.out.println("Yay! The weekend is almost here!");
+                // Output: Yay! The weekend is almost here!
                 break;
             case MONDAY:
-                System.out.println("Week just started");
+                System.out.println("Oh no, the week just started.");
                 break;
             case THURSDAY:
-                System.out.println("Almost weekend !");
+                System.out.println("Almost weekend!");
+                break;
             default:
-                System.out.println("Default handler");
+                System.out.println("It's just a regular day.");
         }
     }
 }
-

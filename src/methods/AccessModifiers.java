@@ -1,18 +1,31 @@
 package methods;
 
+/**
+ * Access Modifiers are like the locks on your house doors!
+ * 
+ * They tell Java who is allowed to see or touch your variables and methods.
+ * This is super important to keep your code safe and organized (this is called Encapsulation!).
+ */
 public class AccessModifiers {
 
-//    Access modifiers in Java are used to control the visibility and accessibility of classes, methods, and variables.
-//    They help enforce encapsulation by restricting access to different parts of a program.
-//    Java provides four types of access modifiers to define scope and protection levels.
+    // 1. PUBLIC: This is like the sidewalk in front of your house. 
+    // ANYONE in the whole world (any part of the program) can see and use this!
+    public String publicVariable = "Everyone can see me!";
 
-//    Public modifier: It is accessible from anywhere in the program
-//    Protected modifier: It is accessible within the same package and by subclasses
-//    Private modifier: It is accessible only within the same class
-//    Default modifier: It is accessible only within the same package
+    // 2. PROTECTED: This is like your backyard. 
+    // Your family (subclasses) and your neighbors (classes in the same package) can come in and play. 
+    // Strangers cannot!
+    protected String protectedVariable = "Only family and neighbors allowed!";
 
-    public String publicVariable = "This is a public variable.";
-    protected String protectedVariable = "This is a protected variable.";
-    private String privateVariable = "This is a private variable.";
-    String defaultVariable = "This is a default variable.";
+    // 3. DEFAULT (No keyword written): This is like the living room of your house. 
+    // Anyone who lives in your house or neighborhood (same package) can come in.
+    // If you don't write public, private, or protected, Java uses this one automatically.
+    String defaultVariable = "Only neighbors (same package) allowed!";
+
+    // 4. PRIVATE: This is like your secret diary in your bedroom!
+    // ONLY YOU (this specific class) can read it or change it. NO ONE ELSE is allowed!
+    private String privateVariable = "Shh... this is a secret only I can see!";
+    
+    // Note: Since we are in the 'AccessModifiers' class, we can see ALL of these variables here.
+    // But if another class tries to look, they might get blocked!
 }

@@ -1,100 +1,62 @@
 package basics;
 
+/**
+ * Operators are like math symbols (+, -, *) but sometimes they do cool magic tricks!
+ * We use them to change numbers or check if things are true.
+ */
 public class Operators {
 
     public static void main(String[] args) {
-        int a = 10, b = 3;
+        
+        // 1. Math Operators (Just like in school!)
+        int apples = 10;
+        int friends = 3;
 
-        // Addition
-        int sum = a + b;
-
-        // Subtraction
-        int diff = a - b;
-
-        // Multiplication
-        int mul = a * b;
-
-        // Division 10/2 returns 5.
-        int div = a / b;
-
-        // Modulus returns the reminder value  10 % 2 returns 0
-        int mod = a % b;      // Modulus
-
-        System.out.println("Sum: " + sum);
-        System.out.println("Difference: " + diff);
-        System.out.println("Multiplication: " + mul);
-        System.out.println("Division: " + div);
-        System.out.println("Modulus: " + mod);
+        System.out.println("--- Math Time ---");
+        System.out.println("Add: " + (apples + friends));       // Output: Add: 13
+        System.out.println("Subtract: " + (apples - friends));  // Output: Subtract: 7
+        System.out.println("Multiply: " + (apples * friends));  // Output: Multiply: 30
+        
+        // Division chops off the decimal! 10 divided by 3 is 3 (with 1 left over).
+        System.out.println("Divide: " + (apples / friends));    // Output: Divide: 3
+        
+        // Modulus (%) is the "Leftover" machine! 
+        // If I share 10 apples with 3 friends, everyone gets 3, and 1 is leftover.
+        System.out.println("Leftovers (Modulus): " + (apples % friends)); // Output: Leftovers: 1
 
 
-        // Integer declared
-        int a1 = 10;
-        int b1 = 10;
+        // 2. Magic Quick Operators (++ and --)
+        System.out.println("\n--- Magic Tricks ---");
+        int score = 5;
+        System.out.println("Original Score: " + score); // Output: 5
+        
+        score++; // This means "Add exactly 1". It's the same as score = score + 1;
+        System.out.println("Score after ++ : " + score); // Output: 6
+        
+        score--; // This means "Subtract exactly 1".
+        System.out.println("Score after -- : " + score); // Output: 5
 
-        // Using unary operators
-        System.out.println("Postincrement : " + (a1++));
-        System.out.println("Preincrement : " + (++a1));
 
-        System.out.println("Postdecrement : " + (b1--));
-        System.out.println("Predecrement : " + (--b1));
+        // 3. Comparison Operators (Asking Yes or No questions)
+        System.out.println("\n--- Asking Questions ---");
+        int myAge = 10;
+        int brotherAge = 12;
+
+        System.out.println("Am I older than brother? " + (myAge > brotherAge));   // Output: false
+        System.out.println("Am I younger than brother? " + (myAge < brotherAge)); // Output: true
+        // '==' asks "Are they exactly the same?" (We use two == because one = is for giving a value)
+        System.out.println("Are we twins? " + (myAge == brotherAge));             // Output: false
 
 
-        // initial value
-        int num = 10;
-        System.out.println("Initial: " + num);
+        // 4. Logical Operators (Combining questions!)
+        // && means "AND" (Both must be true)
+        // || means "OR" (Only one needs to be true)
+        // ! means "NOT" (Flips true to false, false to true)
+        System.out.println("\n--- Combining Questions ---");
+        boolean isSunny = true;
+        boolean hasBike = false;
 
-        // add 5 → num = num + 5
-        num += 5;
-        System.out.println("After +5: " + num);
-
-        // multiply by 2 → num = num * 2
-        num *= 2;
-        System.out.println("After *2: " + num);
-
-        // subtract 5 → num = num - 5
-        num -= 5;
-        System.out.println("After -5: " + num);
-
-        // divide by 2 → num = num / 2
-        num /= 2;
-        System.out.println("After /2: " + num);
-
-        // remainder after dividing by 3 → num = num % 3
-        num %= 3;
-        System.out.println("After %3: " + num);
-
-        // Comparison operators
-        int a2 = 10;
-        int b2 = 3;
-        int c2 = 5;
-
-        System.out.println("a > b: " + (a2 > b2));
-        System.out.println("a < b: " + (a2 < b2));
-        System.out.println("a >= b: " + (a2 >= b2));
-        System.out.println("a <= b: " + (a2 <= b2));
-        System.out.println("a == c: " + (a2 == c2));
-        System.out.println("a != c: " + (a2 != c2));
-
-        // Logical operators
-        boolean x = true;
-        boolean y = false;
-
-        System.out.println("x && y: " + (x && y));
-        System.out.println("x || y: " + (x || y));
-        System.out.println("!x: " + (!x));
-
-        int a3 = 10;
-        int b3 = 20;
-
-        // If (a > b) is true, 'max' gets assigned 'a'. Otherwise, it gets 'b'.
-        int max = (a3 > b3) ? a3 : b3;
-
-        System.out.println(max); // 20
-
-        int num1 = -5;
-
-        String type = (num1 > 0) ? "Positive" : ((num1 < 0) ? "Negative" : "Zero");
-
-        System.out.println(num1 + " is " + type); // -5 is Negative
+        System.out.println("Can I ride my bike in the sun? " + (isSunny && hasBike)); // Output: false (I don't have a bike!)
+        System.out.println("Is it sunny OR do I have a bike? " + (isSunny || hasBike)); // Output: true (At least it's sunny!)
     }
 }

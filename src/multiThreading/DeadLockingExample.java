@@ -1,36 +1,46 @@
 package multiThreading;
 
+/**
+ * Deadlock is like a silly argument over toys!
+ * 
+ * Imagine two kids, Alice and Bob. 
+ * Alice has the toy Car, but wants the toy Train.
+ * Bob has the toy Train, but wants the toy Car.
+ * 
+ * Alice says: "I won't give you the Car until you give me the Train!"
+ * Bob says: "I won't give you the Train until you give me the Car!"
+ * 
+ * Now they are STUCK FOREVER! This is called a Deadlock.
+ */
 public class DeadLockingExample {
-    // Java program to demonstrate deadlock
-    // using Main thread
-
-    // Main driver method
+    
     public static void main(String[] args) {
 
-        // Try block to check for exceptions
         try {
 
-            System.out.println("Thread state is : " + Thread.currentThread().getState());
+            System.out.println("Main Thread state: " + Thread.currentThread().getState());
 
-            // Print statement
-            System.out.println("Entering into Deadlock");
+            // A thread is telling ITSELF to wait for ITSELF to finish!
+            // It's like saying "I won't eat my dessert until I finish eating my dessert."
+            // It gets stuck forever!
+            System.out.println("Uh oh, entering a Deadlock...");
 
-            // Joining the current thread
-            Thread.currentThread().join();
+            // .join() means "wait for this thread to finish".
+            // Since we are calling it on ourself, we wait forever.
+            Thread.currentThread().join(); 
 
-            System.out.println("Thread state is : " + Thread.currentThread().getState());
+            // WE WILL NEVER REACH THIS LINE! The program is completely stuck above.
+            System.out.println("You will never see this message!");
 
-            // This statement will never execute
-            System.out.println("This statement will never execute");
+        } catch (InterruptedException e) {
+            System.out.println("Someone interrupted our waiting!");
         }
-
-        // Catch block to handle the exceptions
-        catch (InterruptedException e) {
-
-            // Display the exception along with line number
-            // using printStackTrace() method
-            e.printStackTrace();
-        }
+        
+        /*
+         * Expected Output:
+         * Main Thread state: RUNNABLE
+         * Uh oh, entering a Deadlock...
+         * (The program gets stuck here forever and never finishes!)
+         */
     }
 }
-

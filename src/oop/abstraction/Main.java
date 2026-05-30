@@ -1,13 +1,21 @@
 package oop.abstraction;
 
-// Define an abstract class
-abstract class Shape {
-    // Define an abstract method
-      public abstract double getArea();
+/**
+ * Here is a great example of Abstraction in the real world!
+ * 
+ * Imagine the word "Shape". A "Shape" is an idea. You can't just draw a "Shape". 
+ * You have to draw a specific shape, like a Circle or a Rectangle.
+ */
 
+// 1. The Abstract Idea (The Boss)
+abstract class Shape {
+    
+    // The Boss says: "Every shape MUST be able to tell me how big it is (Area)!"
+    // But the Boss doesn't know how to calculate it, so it's abstract.
+    public abstract double getArea();
 }
 
-// Define a concrete subclass of Shape
+// 2. The Specific Shape (The Worker)
 class Circle extends Shape {
     private double radius;
 
@@ -15,12 +23,14 @@ class Circle extends Shape {
         this.radius = radius;
     }
 
+    // The Worker actually does the math!
+    @Override
     public double getArea() {
         return Math.PI * radius * radius;
     }
 }
 
-// Define another concrete subclass of Shape
+// 3. Another Specific Shape
 class Rectangle extends Shape {
     private double width;
     private double height;
@@ -30,18 +40,31 @@ class Rectangle extends Shape {
         this.height = height;
     }
 
+    // This Worker does different math!
+    @Override
     public double getArea() {
         return width * height;
     }
 }
 
-// Use the Shape class and its subclasses
 public class Main {
     public static void main(String[] args) {
-        Circle circle = new Circle(5);
-        Rectangle rectangle = new Rectangle(10, 20);
+        
+        // We make a Circle and a Rectangle
+        Circle myCircle = new Circle(5);
+        Rectangle myRectangle = new Rectangle(10, 20);
 
-        System.out.println("Circle area: " + circle.getArea());
-        System.out.println("Rectangle area: " + rectangle.getArea());
+        System.out.println("Let's ask the shapes how big they are!");
+        
+        // They both have the same method name, but they do different math inside!
+        System.out.println("Circle area: " + myCircle.getArea());
+        System.out.println("Rectangle area: " + myRectangle.getArea());
+        
+        /*
+         * Expected Output:
+         * Let's ask the shapes how big they are!
+         * Circle area: 78.53981633974483
+         * Rectangle area: 200.0
+         */
     }
 }

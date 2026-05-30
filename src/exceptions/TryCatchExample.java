@@ -1,60 +1,39 @@
 package exceptions;
 
-import java.io.IOException;
-
+/**
+ * Try-Catch is like wearing a helmet when riding a bike!
+ * 
+ * 'try' means: "I'm going to try this dangerous trick (code)."
+ * 'catch' means: "If I fall (get an error), my helmet will catch me so I don't get hurt (crash)!"
+ * 'finally' means: "No matter what happens, I will put my bike away when I'm done."
+ */
 public class TryCatchExample {
-
-    // This method throws an exception to be handled,
-    // by caller,
-    // of caller and so on.
-    static void fun() throws IllegalAccessException, IOException {
-        System.out.println("Inside fun(). ");
-        throw new IllegalAccessException("IllegalAccessException");
-    }
 
     public static void main(String[] args) {
 
+        System.out.println("--- Trying a math trick ---");
+        
         try {
-            // block of code to monitor for errors
-            // the code you think can raise an exception
-            // ArithmeticException code
+            // We are going to TRY something dangerous.
+            // You can't divide by zero! It's against math rules!
             int a = 5;
             int b = 0;
-            System.out.println(a / b);
-
-        }
-        catch (ArithmeticException exception) {
-            // statement(s) that handle an exception
-            // examples, closing a connection, closing
-            // file, exiting the process after writing
-            // details to a log file.
-            // exception handler for ArithmeticException
-            //Prints stack trace for the exception.
-            exception.printStackTrace(); //prints: java.lang.ArithmeticException: / by zero
-
-            //Prints exception message.
-            exception.getMessage(); // prints: by zero
-
-            //Converts and prints exception string.
-            exception.toString(); //prints: java.lang.ArithmeticException: / by zero
-
-        } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-            // exception handler for ArrayIndexOutOfBoundsException
-        }
-        // optional finally block
-        finally {
-            // block of code to be executed after try block ends
-            System.out.println("I am in final block");
+            System.out.println("Let's divide 5 by 0: " + (a / b)); 
+            
+        } catch (ArithmeticException exception) {
+            // Oh no, we fell! But our catch block (helmet) saved us!
+            System.out.println("Caught an error! You can't divide by zero, silly!");
+            
+        } finally {
+            // This ALWAYS runs, whether we fell or not.
+            System.out.println("Putting the math book away. (I am in the finally block)");
         }
 
-        try {
-            // Throwing new exception using throw keyword.
-            throw new RuntimeException("error_unknown");
-        } catch (RuntimeException exception) {
-            System.out.println("Caught inside help().");
-            // rethrowing the exception
-            throw exception;
-        }
-
+        /*
+         * Expected Output:
+         * --- Trying a math trick ---
+         * Caught an error! You can't divide by zero, silly!
+         * Putting the math book away. (I am in the finally block)
+         */
     }
 }

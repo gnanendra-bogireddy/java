@@ -1,50 +1,55 @@
 package oop.abstraction;
 
-// abstract is a keyword that used to declare abstract classes.
-// We can not instantiate abstract classes, but we can have constructors
-// We can have instance variables and non-abstract methods.
-// It can implements another interface also.
-// Any class that contains one or more abstract methods must also be declared abstract.
-// Abstract classes can have non-abstract, static, final, abstract methods.
-// If we have any abstract method class must be declared as abstract class.
-// Child class no need to call abstract class constructor. This will be called automatically.
+/**
+ * Abstraction is like giving someone a sketch of a drawing, but not coloring it in!
+ * 
+ * An Abstract Class is an unfinished blueprint. You CANNOT build a toy directly from it.
+ * It says: "Any toy built from me MUST have these things, but you have to figure out how to do it!"
+ */
 public abstract class AbstractClass {
 
-    // abstract methods are partially implemented methods.
-    // abstract type method-name(parameter-list);
+    // You CAN have normal variables
+    String color;
 
-    int variableOne;
-    String variableTwo;
-    boolean flagValue;
-
-    public static void staticMethod() {
-        System.out.println("Printing inside static method");
-    }
-
-    public final void finalMethod() {
-        System.out.println("Printing inside final method");
-    }
-
+    // A normal constructor (It runs when a Child class is built)
     public AbstractClass() {
-        System.out.println("Abstract class constructor");
+        System.out.println("Abstract Sketch is ready!");
     }
 
-    // abstract methods can not have full body implementation.
-    abstract void methodOne();
+    // THIS IS THE MAGIC! An abstract method.
+    // Notice there are NO curly braces { }. Just a semicolon.
+    // It's just a rule: "Whoever finishes this sketch MUST write this method!"
+    abstract void finishTheDrawing();
 
-    // abstract classes can have fully implemented default methods.
-    public void defaultMethod() {
-        System.out.println("Printing inside default method");
+    // You can also have fully finished normal methods in an abstract class.
+    public void signName() {
+        System.out.println("Signed by the artist.");
     }
+}
 
+// Now we make a Child class that FINISHES the drawing!
+class FinishedDrawing extends AbstractClass {
+    
+    // We MUST write the code for finishTheDrawing(), otherwise Java gets mad!
+    @Override
+    void finishTheDrawing() {
+        System.out.println("I am coloring in the sketch with crayons! The drawing is done!");
+    }
+    
     public static void main(String[] args) {
-        System.out.println("Printing inside main method");
-    }
-
-    class ChildClass extends AbstractClass {
-        @Override
-        void methodOne() {
-            System.out.println("Printing inside Child class implementation");
-        }
+        // We CANNOT do this: 
+        // AbstractClass sketch = new AbstractClass(); // Error! It's not finished!
+        
+        // We CAN do this:
+        FinishedDrawing masterpiece = new FinishedDrawing();
+        masterpiece.finishTheDrawing();
+        masterpiece.signName();
+        
+        /*
+         * Expected Output:
+         * Abstract Sketch is ready!
+         * I am coloring in the sketch with crayons! The drawing is done!
+         * Signed by the artist.
+         */
     }
 }

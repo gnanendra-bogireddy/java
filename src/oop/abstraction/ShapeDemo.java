@@ -1,24 +1,32 @@
 package oop.abstraction;
 
+/**
+ * Here is another example of a Shape!
+ * 
+ * Think of the Abstract Class as a Factory. 
+ * The Factory knows it has to paint the toy (color) and build the toy (constructor),
+ * but it doesn't know what SHAPE the toy is until the workers (Child classes) make it.
+ */
 public abstract class ShapeDemo {
+    
     String color;
 
-    // These are abstract methods (no bodies, implemented by subclasses)
+    // The factory says: "I don't know the math for area, YOU do it!"
     abstract double area();
+    
+    // The factory says: "I don't know what to call this toy, YOU name it!"
     public abstract String toString();
 
 
-    // Abstract classes CAN have constructors
+    // The Factory worker starts here first!
     public ShapeDemo(String color) {
-        System.out.println("Shape constructor called");
+        System.out.println("Factory: Mixing the " + color + " paint!");
         this.color = color;
     }
 
-    // This is to satisfy the two args constructor used inside rectangle class.
     public ShapeDemo() {
     }
 
-    // This is a concrete method
     public String getColor() {
         return color;
     }
@@ -28,8 +36,9 @@ class CircleDemo extends ShapeDemo {
     double radius;
 
     public CircleDemo(String color, double radius) {
-        super(color); // Calls the Shape constructor first!
-        System.out.println("Circle constructor called");
+        // 'super(color)' calls the Factory (ShapeDemo) constructor first!
+        super(color); 
+        System.out.println("Worker: Building a round Circle!");
         this.radius = radius;
     }
 
@@ -40,7 +49,7 @@ class CircleDemo extends ShapeDemo {
 
     @Override
     public String toString() {
-        return "Circle color is " + super.getColor() + " and area is : " + area();
+        return "Toy: Circle, Color: " + super.getColor() + ", Area: " + area();
     }
 }
 
@@ -49,15 +58,10 @@ class RectangleDemo extends ShapeDemo {
     double width;
 
     public RectangleDemo(String color, double length, double width) {
-        super(color); // Calls the Shape constructor first!
-        System.out.println("Rectangle constructor called");
+        super(color); 
+        System.out.println("Worker: Building a boxy Rectangle!");
         this.length = length;
         this.width = width;
-    }
-
-    public RectangleDemo( double length, double width) {
-        this.length = 45;
-        this.width = 56;
     }
 
     @Override
@@ -67,21 +71,35 @@ class RectangleDemo extends ShapeDemo {
 
     @Override
     public String toString() {
-        return "Rectangle color is " + super.getColor() + " and area is : " + area();
+        return "Toy: Rectangle, Color: " + super.getColor() + ", Area: " + area();
     }
 }
 
-// FIXED: Removed 'public' so it can sit cleanly inside Shape.java
 class Test {
     public static void main(String[] args) {
-        System.out.println("--- Instantiating Circle ---");
+        System.out.println("--- Ordering a Circle ---");
         ShapeDemo s1 = new CircleDemo("Green", 2.2);
 
-        System.out.println("\n--- Instantiating Rectangle ---");
-        ShapeDemo s2 = new RectangleDemo( "Yellow", 3,4);
+        System.out.println("\n--- Ordering a Rectangle ---");
+        ShapeDemo s2 = new RectangleDemo("Yellow", 3, 4);
 
-        System.out.println("\n--- Printing Objects ---");
+        System.out.println("\n--- Looking at our Toys ---");
         System.out.println(s1.toString());
         System.out.println(s2.toString());
+        
+        /*
+         * Expected Output:
+         * --- Ordering a Circle ---
+         * Factory: Mixing the Green paint!
+         * Worker: Building a round Circle!
+         * 
+         * --- Ordering a Rectangle ---
+         * Factory: Mixing the Yellow paint!
+         * Worker: Building a boxy Rectangle!
+         * 
+         * --- Looking at our Toys ---
+         * Toy: Circle, Color: Green, Area: 15.205308443374602
+         * Toy: Rectangle, Color: Yellow, Area: 12.0
+         */
     }
 }

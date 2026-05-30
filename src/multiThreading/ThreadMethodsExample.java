@@ -1,83 +1,64 @@
 package multiThreading;
 
+/**
+ * Thread Methods (Like Priority) are like deciding who gets to play on the swing first!
+ * 
+ * If you have 3 friends wanting to swing, who goes first?
+ * You give them a "Priority" number from 1 to 10.
+ * 10 = SUPER IMPORTANT! Let them swing right now!
+ * 1 = Not important, they can wait.
+ */
 public class ThreadMethodsExample extends Thread {
 
-    // Java Program to Illustrate Priorities in Multithreading
-    //  via help of getPriority() and setPriority() method
-
-
-    // Method 1
-    // run() method for the thread that is called
-    // as soon as start() is invoked for thread in main()
     public void run() {
-        // Print statement
-        System.out.println("Inside run method from " + Thread.currentThread().getId());
+        System.out.println("Hello from Thread: " + Thread.currentThread().getName() + 
+                           " (Priority: " + Thread.currentThread().getPriority() + ")");
+                           
         try {
-            Thread.sleep(5000);
+            // Take a 1-second nap
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            System.out.println("Woke up early!");
         }
-        System.out.println("Thread name : " + Thread.currentThread().getName());
-        System.out.println("Thread state is : " + Thread.currentThread().getState());
-        System.out.println("After sleeping for 5 sec " + Thread.currentThread().getId());
     }
 
-    // Main driver method
-    public static void main(String[] args) throws InterruptedException {
-        // Creating random threads
-        // with the help of above class
-        ThreadMethodsExample t1 = new ThreadMethodsExample();
-        ThreadMethodsExample t2 = new ThreadMethodsExample();
-        ThreadMethodsExample t3 = new ThreadMethodsExample();
+    public static void main(String[] args) {
+        
+        // Create 3 friends (Threads)
+        ThreadMethodsExample friend1 = new ThreadMethodsExample();
+        ThreadMethodsExample friend2 = new ThreadMethodsExample();
+        ThreadMethodsExample friend3 = new ThreadMethodsExample();
 
-        // Thread 1
-        // Display the priority of above thread
-        // using getPriority() method
-        System.out.println("t1 thread priority : " + t1.getPriority());
+        // Give them names so we know who is who!
+        friend1.setName("Alice");
+        friend2.setName("Bob");
+        friend3.setName("Charlie");
 
-        // Thread 2
-        // Display the priority of above thread
-        System.out.println("t2 thread priority : " + t2.getPriority());
+        // Set Priorities! (1 is lowest, 10 is highest)
+        friend1.setPriority(2); // Alice can wait
+        friend2.setPriority(5); // Bob is in the middle
+        friend3.setPriority(8); // Charlie really wants to go!
 
-        // Thread 3
-        System.out.println("t3 thread priority : " + t3.getPriority());
+        // Let's look at the "Main" thread (the boss running this whole program)
+        Thread mainBoss = Thread.currentThread();
+        mainBoss.setName("The Boss Thread");
+        mainBoss.setPriority(10); // The boss is the most important!
+        
+        System.out.println("I am: " + mainBoss.getName() + " with priority " + mainBoss.getPriority());
 
-        // Setting priorities of above threads by
-        // passing integer arguments
-        t1.setPriority(2);
-        t2.setPriority(5);
-        t3.setPriority(8);
-
-        // t3.setPriority(21); will throw
-        // IllegalArgumentException
-        // 2
-        System.out.println("t1 thread priority : " + t1.getPriority());
-
-        // 5
-        System.out.println("t2 thread priority : " + t2.getPriority());
-
-        // 8
-        System.out.println("t3 thread priority : " + t3.getPriority());
-
-
-        // Main thread
-        // Displays the name of
-        // currently executing Thread
-        System.out.println("Currently Executing Thread : " + Thread.currentThread().getName());
-
-        System.out.println("Main thread priority : " + Thread.currentThread().getPriority());
-
-        // Main thread priority is set to 10
-        Thread.currentThread().setPriority(10);
-        Thread.currentThread().setName("High priority thread");
-
-        System.out.println("Main thread priority : " + Thread.currentThread().getPriority());
-        System.out.println("Main thread name : " + Thread.currentThread().getName());
-        System.out.println("Main thread state is : " + Thread.currentThread().getState());
-
-        t3.start();
-        t1.start();
-        t2.start();
+        // Tell all friends to start!
+        // Note: Even with priorities, we can't GUARANTEE Charlie finishes first, 
+        // but the computer will try its best to let high priority threads go faster!
+        friend3.start();
+        friend1.start();
+        friend2.start();
+        
+        /*
+         * Expected Output (Order might change slightly, but usually high priority starts first):
+         * I am: The Boss Thread with priority 10
+         * Hello from Thread: Charlie (Priority: 8)
+         * Hello from Thread: Bob (Priority: 5)
+         * Hello from Thread: Alice (Priority: 2)
+         */
     }
 }
-

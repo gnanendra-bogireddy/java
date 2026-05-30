@@ -2,117 +2,69 @@ package wrapperClasses;
 
 import java.util.ArrayList;
 
+/**
+ * Wrapper Classes are like putting a sweater on a number!
+ * 
+ * Java has small, simple data types like 'int' and 'char'. (These are primitives).
+ * But sometimes Java NEEDS them to be "Objects" (like when putting them in a List).
+ * So, we wrap them in a special sweater (Wrapper Class) to make them an Object!
+ * 
+ * int -> Integer
+ * char -> Character
+ * double -> Double
+ */
 public class GeneralExample {
     public static void main(String[] args) {
 
-        // Java program to demonstrate Autoboxing
-        char ch = 'a';
+        System.out.println("--- Autoboxing (Putting the sweater ON) ---");
+        
+        char tinyLetter = 'a'; // Primitive
+        
+        // Java magically puts a sweater on the tiny letter to make it a Big Object!
+        // This is called Autoboxing.
+        Character bigLetter = tinyLetter; 
+        System.out.println("Big Letter Object: " + bigLetter);
 
-        // Autoboxing- primitive to Character object
-        // conversion
-        Character a = ch;
+        // ArrayLists ONLY hold objects. They cannot hold primitive 'int'.
+        ArrayList<Integer> numberList = new ArrayList<>();
+        
+        // We type '25' (an int), but Java automatically wraps it in an Integer sweater!
+        numberList.add(25);
+        System.out.println("Number from list: " + numberList.get(0));
 
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        
+        System.out.println("\n--- Unboxing (Taking the sweater OFF) ---");
+        
+        Character fancyLetter = 'z'; // An Object
+        
+        // Java automatically takes the sweater off to make it a tiny primitive again!
+        char normalLetter = fancyLetter;
+        System.out.println("Normal tiny letter: " + normalLetter);
 
-        // Autoboxing because ArrayList stores only objects
-        arrayList.add(25);
 
-        // printing the values from object
-        System.out.println(arrayList.get(0));
-
-        Character chr = 'a';
-
-        // unboxing - Character object to primitive
-        // conversion
-        char ab = chr;
-
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(24);
-
-        // unboxing because get method returns an Integer
-        // object
-        int num = list.get(0);
-
-        // printing the values from primitive data types
-        System.out.println(num);
-
-        // byte data type
-        byte abc = 1;
-
-        // Use with Java 9
-        Byte byteobj = Byte.valueOf(abc);
-
-        // int data type
-        int bcd = 10;
-
-        // Use with Java 9
-        Integer intobj = Integer.valueOf(bcd);
-
-        // float data type
-        float cde = 18.6f;
-
-        // Use with Java 9
-        Float floatobj = Float.valueOf(cde);
-
-        // double data type
-        double def = 250.5;
-
-        // Use with Java 9
-        Double doubleobj = Double.valueOf(def);
-
-        // char data type
-        char e = 'a';
-
-        // wrapping around Character object
-        Character charobj = e;
-
-        // printing the values from objects
-        System.out.println("Values of Wrapper objects (printing as objects)");
-        System.out.println("\nByte object byteobj: " + byteobj);
-        System.out.println("\nInteger object intobj: " + intobj);
-        System.out.println("\nFloat object floatobj: " + floatobj);
-        System.out.println("\nDouble object doubleobj: " + doubleobj);
-        System.out.println("\nCharacter object charobj: " + charobj);
-
-        // objects to data types (retrieving data types from
-        // objects) unwrapping objects to primitive data
-        // types
-        byte bv = byteobj;
-        int iv = intobj;
-        float fv = floatobj;
-        double dv = doubleobj;
-        char cv = charobj;
-
-        // printing the values from data types
-        System.out.println("\nUnwrapped values (printing as data types)");
-        System.out.println("\nbyte value, bv: " + bv);
-        System.out.println("\nint value, iv: " + iv);
-        System.out.println("\nfloat value, fv: " + fv);
-        System.out.println("\ndouble value, dv: " + dv);
-        System.out.println("\nchar value, cv: " + cv);
-
-        // Double datatype
-        double d = 100.04;
-
-        // Explicit type casting by forcefully getting
-        // data from long datatype to integer type
-        long l = (long) d;
-
-        // Explicit type casting
-        int i = (int) l;
-
-        // Print statements
-        System.out.println("Double value " + d);
-
-        // While printing we will see that
-        // fractional part lost
-        System.out.println("Long value " + l);
-
-        // While printing we will see that
-        // fractional part lost
-        System.out.println("Int value " + i);
-
+        System.out.println("\n--- Type Casting (Squeezing into a smaller box) ---");
+        
+        double bigDecimal = 100.99; // Takes up a lot of space
+        
+        // We FORCE the big decimal into an integer box. 
+        // It's too big, so the decimal part (.99) gets chopped off and thrown away!
+        int choppedNumber = (int) bigDecimal; 
+        
+        System.out.println("Original big decimal: " + bigDecimal);
+        System.out.println("Chopped integer: " + choppedNumber); // It is now just 100!
+        
+        /*
+         * Expected Output:
+         * --- Autoboxing (Putting the sweater ON) ---
+         * Big Letter Object: a
+         * Number from list: 25
+         * 
+         * --- Unboxing (Taking the sweater OFF) ---
+         * Normal tiny letter: z
+         * 
+         * --- Type Casting (Squeezing into a smaller box) ---
+         * Original big decimal: 100.99
+         * Chopped integer: 100
+         */
     }
-
 }
-
