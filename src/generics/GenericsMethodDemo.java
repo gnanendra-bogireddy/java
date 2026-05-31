@@ -4,73 +4,69 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Generic Methods are like a magic backpack that changes its size for whatever you put in it!
+ * Generic Methods are like a magic backpack that changes its shape for whatever you put in it!
  * 
- * We don't have to just make generic classes; we can make single generic METHODS.
+ * You don't always need a whole Generic Class. Sometimes you just need a single method 
+ * that can handle different types of data.
+ * 
+ * Key Concepts:
+ * 1. Method-level Generics: The <T> is defined right before the return type.
+ * 2. Multiple Type Parameters: You can have <T, V> for multiple different types.
+ * 3. Wildcards (?): Used when you don't care exactly what the type is, but you want to work with a Collection of it.
  */
 public class GenericsMethodDemo {
 
-    // See the <T> before the 'void'? That means this method is magic!
-    // If you hand it a Number, T becomes a Number. 
-    // If you hand it a Word (String), T becomes a Word.
-    public <T> void magicPrint(T item) {
-        System.out.println("Magic Print: " + item + " (Type: " + item.getClass().getSimpleName() + ")");
+    // 1. Simple Generic Method
+    // The <T> before 'void' tells Java this method uses a magic type.
+    public <T> void printItem(T item) {
+        System.out.println("Item: " + item + " (Type: " + item.getClass().getSimpleName() + ")");
     }
 
-    // We can even use TWO magic letters! <T, V> 
-    // Think of T as "Thing 1" and V as "Thing 2".
-    public <T, V> void doubleMagicPrint(T item1, V item2) {
-        System.out.println("Double Magic: " + item1 + " and " + item2);
+    // 2. Multiple Type Parameters
+    // T and V can be two different things (like a name and an age).
+    public <T, V> void printPair(T first, V second) {
+        System.out.println("Pair: " + first + " and " + second);
     }
 
-    // The Wildcard '?' is like saying: "I don't care what it is, just give me a List of it!"
-    // It is a super flexible way to accept any kind of List.
-    public void printAnyList(List<?> theList) {
-        System.out.println("Here is the list: " + theList);
+    // 3. Wildcard (?)
+    // List<?> means "A list of something, I don't care what!"
+    public void printAnyList(List<?> list) {
+        System.out.println("List elements: " + list);
     }
 
     public static void main(String[] args) {
         GenericsMethodDemo demo = new GenericsMethodDemo();
 
-        System.out.println("--- Magic Methods ---");
-        
-        // Watch the same method accept completely different things!
-        demo.magicPrint(24);         // Accepts an Integer
-        demo.magicPrint("Hello");    // Accepts a String
-        demo.magicPrint(3.14);       // Accepts a Double
-        
-        System.out.println("\n--- Double Magic ---");
-        demo.doubleMagicPrint("Apples", 10); // T is String, V is Integer
-        
-        System.out.println("\n--- Wildcard '?' List ---");
-        // We make a list of numbers
-        List<Integer> numbers = new ArrayList<>();
-        numbers.add(1);
-        numbers.add(2);
-        numbers.add(3);
-        
-        // We make a list of words
-        List<String> words = new ArrayList<>();
-        words.add("Dog");
-        words.add("Cat");
-        
-        // The wildcard method takes BOTH!
-        demo.printAnyList(numbers);
-        demo.printAnyList(words);
-        
+        System.out.println("--- 1. Generic Methods ---");
+        demo.printItem("Coffee");    // Works with String
+        demo.printItem(15.99);       // Works with Double
+        demo.printItem(true);        // Works with Boolean
+
+        System.out.println("\n--- 2. Multiple Types ---");
+        demo.printPair("ID", 101);
+        demo.printPair(202, "Active");
+
+        System.out.println("\n--- 3. Wildcards ---");
+        List<String> names = List.of("Alice", "Bob");
+        List<Integer> scores = List.of(95, 88);
+
+        demo.printAnyList(names);
+        demo.printAnyList(scores);
+
         /*
          * Expected Output:
-         * --- Magic Methods ---
-         * Magic Print: 24 (Type: Integer)
-         * Magic Print: Hello (Type: String)
-         * Magic Print: 3.14 (Type: Double)
+         * --- 1. Generic Methods ---
+         * Item: Coffee (Type: String)
+         * Item: 15.99 (Type: Double)
+         * Item: true (Type: Boolean)
          * 
-         * --- Double Magic ---
-         * Double Magic: Apples and 10
+         * --- 2. Multiple Types ---
+         * Pair: ID and 101
+         * Pair: 202 and Active
          * 
-         * --- Wildcard '?' List ---
-         * Here is the list: [1, 2, 3]
-         * Here is the list: [Dog, Cat]
+         * --- 3. Wildcards ---
+         * List elements: [Alice, Bob]
+         * List elements: [95, 88]
          */
     }
 }

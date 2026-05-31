@@ -1,77 +1,91 @@
 package generics;
 
 /**
- * Generics are like a magic lunchbox!
+ * Generics are like a magic lunchbox that can hold different types of food!
  * 
- * Imagine you have a lunchbox. One day you want to put a Sandwich in it, 
- * the next day an Apple, and the next day a Juice Box.
- * 
- * Instead of making 3 different lunchboxes (one specifically for Sandwiches, one for Apples...), 
+ * Instead of making a separate lunchbox for Sandwiches, one for Apples, and one for Cookies, 
  * we make ONE "Generic" Lunchbox that can hold <Anything>!
  * 
- * The '<T>' stands for "Type". It means: "You tell me what Type of thing to hold, and I will hold it!"
+ * Key terms:
+ * 1. <T> - This is a Type Parameter. 'T' is just a placeholder (like 'x' in math).
+ * 2. Type Safety - Java checks to make sure you only put the right "food" in the box.
+ * 3. Reusability - You write the code once, and it works for many types!
  */
-
-// Sometimes we want to be a little bit strict.
-// "<T extends Parent>" means: "This lunchbox can only hold things that belong to the Parent family."
-// You can't put a toy in the lunchbox, only food (Parent)!
-public class GenericsDemo<T extends Parent> {
-
-    T thingInside;
-
-    public GenericsDemo(T thingInside) {
-        this.thingInside = thingInside;
-    }
-
-    public void printWhatIsInside() {
-        System.out.println("Inside the generic box: " + thingInside.getClass().getSimpleName());
-    }
+public class GenericsDemo {
 
     public static void main(String[] args) {
-        
-        System.out.println("--- Magic Boxes ---");
-        
-        // We tell the box to ONLY hold a ChildOne
-        GenericsDemo<ChildOne> box1 = new GenericsDemo<>(new ChildOne());
-        box1.printWhatIsInside(); 
-        
-        // We tell the box to ONLY hold a ChildTwo
-        GenericsDemo<ChildTwo> box2 = new GenericsDemo<>(new ChildTwo());
-        box2.printWhatIsInside();
 
-        // If we tried this, Java would yell at us! 
-        // ChildThree is NOT part of the Parent family.
-        // GenericsDemo<ChildThree> box3 = new GenericsDemo<>(new ChildThree()); // ERROR!
+        System.out.println("--- 1. Simple Generic Box ---");
+        // We tell the box to hold a String
+        Box<String> stringBox = new Box<>("My Secret Note");
+        System.out.println("String Box contains: " + stringBox.getContent());
 
-        // Because we forced <T extends Parent>, we know FOR SURE that whatever is 
-        // inside the box has the Parent's tools!
-        box1.thingInside.parentTool(); 
-        
+        // We tell the same Box class to hold an Integer
+        Box<Integer> integerBox = new Box<>(100);
+        System.out.println("Integer Box contains: " + integerBox.getContent());
+
+
+        System.out.println("\n--- 2. Bounded Generic Box (Restricted) ---");
+        // This box ONLY accepts things that belong to the 'Parent' family.
+        // It's like saying "This box only holds Fruit, not Toys."
+        BoundedBox<ChildOne> fruitBox = new BoundedBox<>(new ChildOne());
+        fruitBox.printInfo();
+
+        BoundedBox<ChildTwo> anotherFruitBox = new BoundedBox<>(new ChildTwo());
+        anotherFruitBox.printInfo();
+
+        // If we tried: BoundedBox<Outsider> box = new BoundedBox<>(new Outsider());
+        // Java would give an ERROR because Outsider does not extend Parent!
+
         /*
          * Expected Output:
-         * --- Magic Boxes ---
-         * Inside the generic box: ChildOne
-         * Inside the generic box: ChildTwo
-         * The parent tool is working!
+         * --- 1. Simple Generic Box ---
+         * String Box contains: My Secret Note
+         * Integer Box contains: 100
+         * 
+         * --- 2. Bounded Generic Box (Restricted) ---
+         * Inside the box: ChildOne
+         * Inside the box: ChildTwo
          */
     }
-
 }
 
-class Parent {
-    public void parentTool() {
-        System.out.println("The parent tool is working!");
+// 1. A Simple Generic Class
+// T is the placeholder for the type we will decide later
+class Box<T> {
+    private T content;
+
+    public Box(T content) {
+        this.content = content;
+    }
+
+    public T getContent() {
+        return content;
     }
 }
 
-class ChildOne extends Parent {
-    // I am part of the Parent family!
+// 2. A Bounded Generic Class
+// T must be a Parent or a subclass of Parent
+class BoundedBox<T extends Parent> {
+    private T item;
+
+    public BoundedBox(T item) {
+        this.item = item;
+    }
+
+    public void printInfo() {
+        System.out.println("Inside the box: " + item.getClass().getSimpleName());
+        item.useTool();
+    }
 }
 
-class ChildTwo extends Parent {
-    // I am also part of the Parent family!
+// Supporting classes for the Bounded Example
+class Parent {
+    public void useTool() {
+        // Parent has a basic tool
+    }
 }
 
-class ChildThree {
-    // I am NOT part of the Parent family. I am an outsider!
-}
+class ChildOne extends Parent { }
+class ChildTwo extends Parent { }
+class Outsider { }
